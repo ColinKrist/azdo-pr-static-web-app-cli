@@ -2,7 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   azure-pipelines-task-lib: ^3.2.0
-  azure-pipelines-tool-lib: ^1.3.1
+  azure-pipelines-tool-lib: ^2.0.0
   copy-webpack-plugin: ^6.3.2
   glob-exec: ^0.1.1
   glob-parent: '>=5.1.2'
@@ -14,7 +14,7 @@ specifiers:
 
 devDependencies:
   azure-pipelines-task-lib: 3.3.1
-  azure-pipelines-tool-lib: 1.3.2
+  azure-pipelines-tool-lib: 2.0.4
   copy-webpack-plugin: 6.4.1_webpack@4.46.0
   glob-exec: 0.1.1
   glob-parent: 6.0.2
@@ -364,6 +364,8 @@ packages:
     dependencies:
       micromatch: 3.1.10
       normalize-path: 2.1.1
+    transitivePeerDependencies:
+      - supports-color
     dev: true
     optional: true
 
@@ -514,12 +516,24 @@ packages:
       uuid: 3.4.0
     dev: true
 
-  /azure-pipelines-tool-lib/1.3.2:
-    resolution: {integrity: sha512-PtYcd3E2ouwZhLuaOpWA00FYoLjRuJs1V8mNu3u6lBnqeYd4jh/8VL/of6nchm8f2NM6Div+EEnbOcmWvcptPg==}
+  /azure-pipelines-task-lib/4.3.1:
+    resolution: {integrity: sha512-AEwz0+Sofv80UviCYsS6fzyX5zzsLapmNCMNUoaRePZQVN+oQBStix1DGg4fdZf9zJ6acNd9xEBZQWbWuZu5Zg==}
+    dependencies:
+      minimatch: 3.0.5
+      mockery: 2.1.0
+      q: 1.5.1
+      semver: 5.7.1
+      shelljs: 0.8.5
+      sync-request: 6.1.0
+      uuid: 3.4.0
+    dev: true
+
+  /azure-pipelines-tool-lib/2.0.4:
+    resolution: {integrity: sha512-LgAelZKJe3k/t3NsKSKzjeRviphns0w0p5tgwz8uHN70I9m2TToiOKl+fogrdXcM6+jiLBk5KTqrcRBqPpv/XA==}
     dependencies:
       '@types/semver': 5.5.0
       '@types/uuid': 3.4.10
-      azure-pipelines-task-lib: 3.3.1
+      azure-pipelines-task-lib: 4.3.1
       semver: 5.7.1
       semver-compare: 1.0.0
       typed-rest-client: 1.8.6
@@ -611,6 +625,8 @@ packages:
       snapdragon-node: 2.1.1
       split-string: 3.1.0
       to-regex: 3.0.2
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /braces/3.0.2:
@@ -738,7 +754,7 @@ packages:
       mississippi: 3.0.0
       mkdirp: 0.5.6
       move-concurrently: 1.0.1
-      promise-inflight: 1.0.1
+      promise-inflight: 1.0.1_bluebird@3.7.2
       rimraf: 2.7.1
       ssri: 6.0.2
       unique-filename: 1.1.1
@@ -762,11 +778,13 @@ packages:
       minipass-pipeline: 1.2.4
       mkdirp: 1.0.4
       p-map: 4.0.0
-      promise-inflight: 1.0.1
+      promise-inflight: 1.0.1_bluebird@3.7.2
       rimraf: 3.0.2
       ssri: 8.0.1
       tar: 6.1.11
       unique-filename: 1.1.1
+    transitivePeerDependencies:
+      - bluebird
     dev: true
 
   /cache-base/1.0.1:
@@ -836,6 +854,8 @@ packages:
       upath: 1.2.0
     optionalDependencies:
       fsevents: 1.2.13
+    transitivePeerDependencies:
+      - supports-color
     dev: true
     optional: true
 
@@ -1031,6 +1051,8 @@ packages:
       serialize-javascript: 5.0.1
       webpack: 4.46.0_webpack-cli@4.10.0
       webpack-sources: 1.4.3
+    transitivePeerDependencies:
+      - bluebird
     dev: true
 
   /core-util-is/1.0.3:
@@ -1131,6 +1153,11 @@ packages:
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
     dependencies:
       ms: 2.0.0
     dev: true
@@ -1381,6 +1408,8 @@ packages:
       regex-not: 1.0.2
       snapdragon: 0.8.2
       to-regex: 3.0.2
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /extend-shallow/2.0.1:
@@ -1410,6 +1439,8 @@ packages:
       regex-not: 1.0.2
       snapdragon: 0.8.2
       to-regex: 3.0.2
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /eyes/0.1.8:
@@ -1583,7 +1614,7 @@ packages:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
     os: [darwin]
-    deprecated: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
+    deprecated: The v1 package contains DANGEROUS / INSECURE binaries. Upgrade to safe fsevents v2
     requiresBuild: true
     dependencies:
       bindings: 1.5.0
@@ -2416,6 +2447,8 @@ packages:
       regex-not: 1.0.2
       snapdragon: 0.8.2
       to-regex: 3.0.2
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /micromatch/4.0.5:
@@ -2561,6 +2594,10 @@ packages:
     resolution: {integrity: sha512-gUQA33ayi0tuAhr/rJNZPr7Q7uvlBt4gyJPbi0CDcAfIzIrDu1YgGMFgmAu3stJqBpK57m7+RxUbcS+pt59fKQ==}
     dev: true
 
+  /mockery/2.1.0:
+    resolution: {integrity: sha512-9VkOmxKlWXoDO/h1jDZaS4lH33aWfRiJiNT/tKj+8OGzrcFDLo8d0syGdbsc3Bc4GvRXPb+NMMvojotmuGJTvA==}
+    dev: true
+
   /move-concurrently/1.0.1:
     resolution: {integrity: sha512-hdrFxZOycD/g6A6SoI2bB5NA/5NEqD0569+S47WZhPvm46sD50ZHdYaFmnua5lndde9rCHGjmfK7Z8BuCt/PcQ==}
     dependencies:
@@ -2601,6 +2638,8 @@ packages:
       regex-not: 1.0.2
       snapdragon: 0.8.2
       to-regex: 3.0.2
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /neo-async/2.6.2:
@@ -2930,8 +2969,15 @@ packages:
     engines: {node: '>= 0.6.0'}
     dev: true
 
-  /promise-inflight/1.0.1:
+  /promise-inflight/1.0.1_bluebird@3.7.2:
     resolution: {integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==}
+    peerDependencies:
+      bluebird: '*'
+    peerDependenciesMeta:
+      bluebird:
+        optional: true
+    dependencies:
+      bluebird: 3.7.2
     dev: true
 
   /promise/8.1.0:
@@ -3104,6 +3150,8 @@ packages:
       graceful-fs: 4.2.10
       micromatch: 3.1.10
       readable-stream: 2.3.7
+    transitivePeerDependencies:
+      - supports-color
     dev: true
     optional: true
 
@@ -3420,6 +3468,8 @@ packages:
       source-map: 0.5.7
       source-map-resolve: 0.5.3
       use: 3.1.1
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /source-list-map/2.0.1:
@@ -3955,6 +4005,8 @@ packages:
     requiresBuild: true
     dependencies:
       chokidar: 2.1.8
+    transitivePeerDependencies:
+      - supports-color
     dev: true
     optional: true
 
@@ -3966,6 +4018,8 @@ packages:
     optionalDependencies:
       chokidar: 3.5.3
       watchpack-chokidar2: 2.0.1
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /webpack-cli/4.10.0_webpack@4.46.0:
@@ -4055,6 +4109,8 @@ packages:
       watchpack: 1.7.5
       webpack-cli: 4.10.0_webpack@4.46.0
       webpack-sources: 1.4.3
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /which-boxed-primitive/1.0.2:
